@@ -1,0 +1,40 @@
+1. feature Extraction
+To run feature extraction, run:
+
+python extract_features.py
+
+if you want to specify a different path for audio files:
+
+python extract_features.py -p path/to/main/audio/folder
+
+if you want to specify a different path for metadata:
+
+python extract_features.py -l path/to/metadata/file
+
+Meanwhile, the audio duration check in the original kdd codes is by default disabled in this version.
+If you want to enable it:
+
+python extract_features.py -c True
+
+
+2. Flac to wav
+If you want to turn flac file to wav, run:
+
+python flac_to_wav.py -p path/to/main/audio/folder
+
+3. Test with model
+The usage is simple, just run:
+
+python model.py
+
+Arguments you can use include:
+
+--x_data_path or -x, where the data located, should be in npy format
+--y_data_path or -y, where the label located, should be in npy format
+--uid_path or -u, where the id located, should be in npy format
+--train_set or -t, the path to the file that list all id for training
+--val_set or -v, the path to the file that list all id for validation, not used for now
+--model or -m, which model to use, currently there are svm(SVM), lr(Logistic Regression), rf(Random Forest), bt(Gradient Boosting Decision Trees)
+--data_part or -d, which data part(s) are used in training, you can choose all, breath or cough.
+
+The data_part-related functions are hard-coded and only for kdd. You would want to delete related codes in other applications. 
