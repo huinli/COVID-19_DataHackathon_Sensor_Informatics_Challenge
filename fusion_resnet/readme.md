@@ -44,10 +44,10 @@ You should also get the best model for all three processes (cough, speech and br
 
 Run
 ```
-python train_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path ./ --fold_num 1
+python train_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path <pathToYourResNetModel> --fold_num <#>
 
 
-python test_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path ./ --fold_num 2
+python test_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path <pathToYourResNetModel> --fold_num <#>
 ```
 
 
