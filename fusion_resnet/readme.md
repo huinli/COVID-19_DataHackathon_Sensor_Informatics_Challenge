@@ -43,12 +43,11 @@ After you run the auto.py, and get the extracted feature, you should have all ex
 You should also get the best model for all three processes (cough, speech and breath) and save them under folder named ''checkpoint''.
 
 Run
-'''
+```
 python train_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path ./ --fold_num 1
 
 
 python test_FFN.py --cfg exps/baseline/resnet34_iden.yaml --load_path ./ --fold_num 2
-
-''' 
+```
 
 
