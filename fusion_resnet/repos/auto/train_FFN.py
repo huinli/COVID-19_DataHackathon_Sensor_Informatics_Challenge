@@ -130,9 +130,9 @@ def main():
     last_epoch = -1
 
     # dataloader
-    b_path = cfg.DATASET.DATA_DIR +'/breathing_{}_data'.format(proc_num)
-    c_path = cfg.DATASET.DATA_DIR + '/cough_{}_data'.format(proc_num)
-    s_path = cfg.DATASET.DATA_DIR + '/speech_{}_data'.format(proc_num)
+    b_path = cfg.DATASET.DATA_DIR +'/breathing_{}'.format(proc_num)
+    c_path = cfg.DATASET.DATA_DIR + '/cough_{}'.format(proc_num)
+    s_path = cfg.DATASET.DATA_DIR + '/speech_{}'.format(proc_num)
     
     train_loader,test_loader_identification = getData(cfg,b_path,c_path,s_path)
 
