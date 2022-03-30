@@ -20,7 +20,11 @@ def do(audio_type, list_id):
     AUDIO_PATH = RAW_DATASET_PATH+"/AUDIO_WAV/"+audio_type
     target_data_path = "repos/auto/data"
     
+    if not os.path.exists(target_data_path):
+        os.mkdir(target_data_path)
+
     target_data_path = target_data_path + "/" + audio_type + "_" + str(list_id)
+    
     train = []
     validate = []
 
@@ -69,6 +73,10 @@ def do(audio_type, list_id):
         out.write("")
 
     os.chdir("repos/auto")
+    os.system("python data_preprocess.py " + "data/" + audio_type + "_" + str(list_id))
+    os.chdir("../..")
+    """
+    os.chdir("repos/auto")
     os.system("python data_preprocess.py data")
     os.system(
         "python train_baseline_identification.py --cfg exps/baseline/resnet34_iden.yaml")
@@ -93,12 +101,11 @@ def do(audio_type, list_id):
     os.system("mv logs saved_logs/{}_{}_log".format(audio_type, list_id))
     os.system("mv data saved_data/{}_{}_data".format(audio_type, list_id))
     os.chdir("../..")
+    """
 
 types = ["breathing", "cough", "speech"]
 if __name__ == "__main__":
     
     for i in range(5):
         for t in types:
-            if i==0 and t=="breathing":
-                continue
             do(t, i)
